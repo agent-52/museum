@@ -1,0 +1,13 @@
+
+.bgW1{
+  background-color: #eaeaea;
+}
+.cB1{
+  color: rgb(26, 26, 26);
+}
+.blackHover:hover{
+  background-color: rgb(39, 39, 39);
+}
+.whiteHover:hover{
+  background-color: #dddddd;
+}
