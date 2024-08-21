@@ -260,3 +260,25 @@ body{
   
   border-radius: 999px;
 }
+
+.fixed{
+  position: fixed;
+  top: 0;
+  backdrop-filter: blur(1rem);
+}
+
+.botIcon{
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  aspect-ratio: 1;
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  right: 3%;
+  bottom: 3%;
+}
+.botIcon>img{
+  border-radius: 50%;
+  
+}
