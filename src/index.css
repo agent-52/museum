@@ -16,6 +16,11 @@
   --black1: rgb(26, 26, 26);
 }
 
+.webgl{
+  /* z-index: 10;
+  position: absolute; */
+}
+
 @font-face {
   font-family: f1;
   src: url("/Fonts/f1.woff2");
@@ -132,7 +137,18 @@ body{
   align-items: center;
 }
 
+.placeC{
+  display: grid;
+  place-items: center;
+}
+
 /*gaps*/
+.gap4{
+  gap: 4rem;
+}
+.gap3{
+  gap: 3rem;
+}
 .gap2{
   gap: 2rem;
 }
@@ -143,7 +159,7 @@ body{
   gap: 0.5rem;
 }
 .gap00{
-  gap: 0.3rem;
+  gap: 0.2rem;
 }
 
 /*margins*/
@@ -154,6 +170,12 @@ body{
 /*padding*/
 .pdI2{
   padding-inline: 2rem;
+}
+.pdI3{
+  padding-inline: 3rem;
+}
+.pdI1{
+  padding-inline: 1rem;
 }
 .pdB0{
   padding-block: 0.5rem;
@@ -168,6 +190,11 @@ body{
 }
 .h100{
   height: 100%;
+}
+
+/*overflow*/
+.overflowXH{
+  overflow-x: hidden;
 }
 
 /*font size and weight*/

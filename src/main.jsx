@@ -1,11 +1,17 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App/App.jsx'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import routes from "./routes";
+
 import './index.css'
-import MuseumHomePage from './MuseumHomePage/MuseumHomePage.jsx'
+
+
+const router = createBrowserRouter(routes);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <MuseumHomePage />
+    <RouterProvider router={router} />
   </StrictMode>,
 )

@@ -4,7 +4,7 @@ import Button from "../Button/Button.jsx"
 const Header = () =>{
 
   return(
-    <header className="flex pdI2 justifyBw w100 pdB0 alignC fixed">
+    <header className="flex pdI3 justifyBw w100 pdB0 alignC fixed">
       <div className="flex gap1 alignC">
         <div className="lightBold cLw">museums</div>
         <div className="lightBold cLw">tickets</div>

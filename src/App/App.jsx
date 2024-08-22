@@ -6,6 +6,9 @@ import Header from '../Header/Header'
 import Button from '../Button/Button'
 import searchIcon from "/Images/searchIcon.png"
 
+import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 import Bot from '../Bot/Bot'
 
 import gsap from 'gsap';
@@ -17,7 +20,8 @@ gsap.registerPlugin(TextPlugin)
 
 
 function App() {
-  
+  const { museum } = useParams();
+  console.log(museum)
   useGSAP(()=>{
     const tl = gsap.timeline()
     tl.to("span.india", {
@@ -56,7 +60,7 @@ function App() {
 
         <div className='flex gap00 justifyC wMax'>
           <input type="text" className='searchBox whiteHover textC' placeholder='Search Museum name'/>
-          <button className='searchButton'><img src={searchIcon} alt="" className='boxImage'/></button>
+          <Link to={`/museumHomePage/${museum}`}><button className='searchButton'><img src={searchIcon} alt="" className='boxImage'/></button></Link>
         </div>
       </div>
       <Bot />

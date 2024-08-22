@@ -1,0 +1,12 @@
+.gridSection1{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.canvasContainer{
+  /* background: rgb(255,255,255);
+  background: radial-gradient(circle, rgb(226, 226, 226) 0%, rgb(236, 236, 236) 100%); */
+  /* border-radius: 1rem; */
+  position: relative;
+}
