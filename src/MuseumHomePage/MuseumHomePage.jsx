@@ -7,11 +7,21 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js"
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import { useParams } from "react-router-dom";
+import  gsap  from "gsap"
+
+// gsap.registerPlugin(useGSAP);
 
 const MuseumHomePage = ({name="Central Museum, Indore", timing="9am-6pm", days="mon-sat", description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis quod vero dolorem provident accusamus, molestias beatae minima soluta consequatur voluptatem repellat aut consectetur mollitia perferendis similique ipsum delectus blanditiis explicabo?", pricing={}, imgArray=[], videoArray=[]}) =>{
 
   const { museum } = useParams();
   console.log(museum)
+  function pageCoverAnimation(){
+    // const tl = gsap.timeline()
+    // tl.to(".pageCover", {
+    //   clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
+    //   duration: 0.4
+    // })
+  }
 
   useEffect(() =>{
 
@@ -28,12 +38,23 @@ const MuseumHomePage = ({name="Central Museum, Indore", timing="9am-6pm", days="
     // Scene
     const scene = new THREE.Scene()
 
+    //loading manager
+    const manager = new THREE.LoadingManager();
+    // manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+    //   console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+    // };
+
+    manager.onLoad = function ( ) {
+      console.log( 'Loading complete!');
+      pageCoverAnimation()
+    };
+
     /**
      * Models
      */
     const dracoLoader = new DRACOLoader()
     dracoLoader.setDecoderPath("/draco/")
-    const gltfLoader = new GLTFLoader()
+    const gltfLoader = new GLTFLoader(manager)
     gltfLoader.setDRACOLoader(dracoLoader)
 
     let mixer = null
@@ -232,6 +253,7 @@ const MuseumHomePage = ({name="Central Museum, Indore", timing="9am-6pm", days="
 
   return(
     <div className="overflowXH">
+      {/* <div className="pageCover"></div> */}
       <Header />
       <div className="gridSection1 body placeC pdI3">
         <div className="flexC gap2 w100">

@@ -25,15 +25,11 @@ function App() {
   useGSAP(()=>{
     const tl = gsap.timeline()
     tl.to("span.india", {
-      text: "BHARAT",
-      duration:0.7
-    })
-    tl.to("span.india", {
       text: "भारत",
       duration:0.7
     })
     tl.to("span.india", {
-      text: "ਭਾਰਤ",
+      text: "BHARAT",
       duration:0.7
     })
     tl.to("span.india", {
