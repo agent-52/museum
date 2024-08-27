@@ -10,7 +10,7 @@ const routes = [
     errorElement: <ErrorPage />,
   },
   {
-    path: "museumHomePage/:museum",
+    path: "museumHomePage/:museumNumber",
     element: <MuseumHomePage />,
   },
 ];

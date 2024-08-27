@@ -8,13 +8,15 @@ import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js"
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import { useParams } from "react-router-dom";
 import  gsap  from "gsap"
+import MuseumDataArray from "../MuseumData/MuseumData"
 
 // gsap.registerPlugin(useGSAP);
 
-const MuseumHomePage = ({name="Central Museum, Indore", timing="9am-6pm", days="mon-sat", description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis quod vero dolorem provident accusamus, molestias beatae minima soluta consequatur voluptatem repellat aut consectetur mollitia perferendis similique ipsum delectus blanditiis explicabo?", pricing={}, imgArray=[], videoArray=[]}) =>{
+const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray=[], videoArray=[]}) =>{
 
-  const { museum } = useParams();
-  console.log(museum)
+  const { museumNumber } = useParams();
+  console.log(museumNumber)
+  const museum = MuseumDataArray[museumNumber] 
   function pageCoverAnimation(){
     // const tl = gsap.timeline()
     // tl.to(".pageCover", {
@@ -59,7 +61,7 @@ const MuseumHomePage = ({name="Central Museum, Indore", timing="9am-6pm", days="
 
     let mixer = null
     gltfLoader.load(
-        "/3d/15.glb",
+        `/3d/${museumNumber}.glb`,
         (gltf) => 
         {
             // mixer = new THREE.AnimationMixer(gltf.scene)
@@ -80,18 +82,23 @@ const MuseumHomePage = ({name="Central Museum, Indore", timing="9am-6pm", days="
 
             //for model11
             // gltf.scene.scale.set(5, 5, 5)
+            // gltf.scene.rotation.y = 1
 
             //for model12
             // gltf.scene.scale.set(1.8, 1.8, 1.8)
+            // gltf.scene.rotation.y = 0.85
 
             //for model13
-            // gltf.scene.scale.set(0.4, 0.4, 0.4)
+            // gltf.scene.scale.set(0.35, 0.35, 0.35)
+            // gltf.scene.rotation.y = 0.85
 
             //for model15
-            gltf.scene.scale.set(6,6,6)
-            gltf.scene.rotation.y = 1
+            // gltf.scene.scale.set(6,6,6)
+            // gltf.scene.rotation.y = 1
 
-            //for model16
+            //for model19
+            gltf.scene.scale.set(1,1,1)
+            gltf.scene.rotation.y = 2.7
             
 
             scene.add(gltf.scene)
@@ -257,8 +264,8 @@ const MuseumHomePage = ({name="Central Museum, Indore", timing="9am-6pm", days="
       <Header />
       <div className="gridSection1 body placeC pdI3">
         <div className="flexC gap2 w100">
-          <h1 className="lightBold fsXl">{name}</h1>
-          <div className="fs1">{description}</div>
+          <h1 className="lightBold fsXl">{museum.name}</h1>
+          <div className="fs1">{museum.desc}</div>
           <div className="flex alignC gap4 ">
             <Button text="Buy Ticket" classArray="blackHover fs1"/>
             <div className="flex gap2">

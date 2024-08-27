@@ -46,6 +46,11 @@ a:hover {
   height: 100%; */
 }
 
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -93,13 +98,15 @@ body{
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#e3e3e3",GradientType=1);
 
   color: #1a1a1a;
-
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   /* display: flex;
   place-items: center; */
   min-width: 320px;
   min-height: 100vh;
+  width: 100vw;
+  
 }
 
 .border{
@@ -143,6 +150,9 @@ body{
 }
 
 /*gaps*/
+.gap5{
+  gap: 5rem;
+}
 .gap4{
   gap: 4rem;
 }
@@ -155,6 +165,9 @@ body{
 .gap1{
   gap: 1rem;
 }
+.gap1_1{
+  gap:1.5rem
+}
 .gap0{
   gap: 0.5rem;
 }
@@ -165,6 +178,15 @@ body{
 /*margins*/
 .mgB1{
   margin-block: 0.5rem;
+}
+.mgT2{
+  margin-top: 2rem;
+}
+.mgT5{
+  margin-top: 5rem;
+}
+.mgT7{
+  margin-top: 7rem;
 }
 
 /*padding*/
@@ -177,6 +199,9 @@ body{
 .pdI1{
   padding-inline: 1rem;
 }
+.pd1{
+  padding: 1rem;
+}
 .pdB0{
   padding-block: 0.5rem;
 }
@@ -188,9 +213,17 @@ body{
 .w100{
   width: 100%;
 }
-.h100{
+.h100Percent{
   height: 100%;
 }
+.h100{
+  height: 100vh;
+}
+.h90{
+  height: 90vh;
+}
+
+
 
 /*overflow*/
 .overflowXH{
@@ -210,6 +243,9 @@ body{
 .fs1{
   font-size: 1.25rem;
 }
+.fs0{
+  font-size: 0.9rem;
+}
 .fs2{
   font-size: 2rem;
 }
@@ -221,7 +257,7 @@ body{
 
 /*hover effects*/
 .blackHover:hover{
-  background-color: rgb(39, 39, 39);
+  background-color: rgb(52, 52, 52);
 }
 .whiteHover:hover{
   background-color: #cdcdcd;
@@ -262,6 +298,7 @@ body{
   max-width: 40ch;
 }
 
+
 /*dec1Button*/
 .dec1ButtonWrapper{
   position: relative;
@@ -288,11 +325,17 @@ body{
   border-radius: 999px;
 }
 
+/*absolute*/
 .fixed{
   position: fixed;
   top: 0;
+  
   backdrop-filter: blur(1rem);
 }
+.z100{
+  z-index: 100;
+}
+
 
 .botIcon{
   border-radius: 50%;
@@ -308,4 +351,46 @@ body{
 .botIcon>img{
   border-radius: 50%;
   
+}
+
+.cardSection{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  width: 100%;
+  column-gap: 2rem;
+  row-gap: 3rem;
+  padding-inline: 5rem;
+  
+}
+.museumCard{
+  min-height: 300px;
+  /* border: 2px solid red; */
+  /* justify-content: space-between; */
+  border: 1px solid rgba(0, 0, 0, 0.21);
+  justify-content: center;
+  box-shadow: 2px 2px rgb(235, 229, 229), 0em 0 .4em rgb(176, 176, 176);
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  border-radius: 0.5rem ;
+}
+.museumCard>div{
+  height: calc(100% - 200px);
+}
+.museumCard:hover .museumImage{
+  transform: scale(1.1);
+  
+}
+.museumCard:hover{
+  background-color: white;
+}
+
+.museumImage{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.2s ease-in-out;
+  border-top-left-radius: 0.5rem ;
+  border-top-right-radius: 0.5rem ;
 }
