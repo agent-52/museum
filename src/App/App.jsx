@@ -51,9 +51,9 @@ function App() {
   return (
     <>
     <Header />
-    <div className='body flexC alignC justifyC pdI2'>
+    <div className='body flexC alignC justifyC pdI2 gap4'>
       
-      <div className='flexC justifyC alignC gap1_1 h100 overflowXH'>
+      <div className='flexC justifyC alignC gap1 overflowXH mgT7'>
         <div className="dec1ButtonWrapper"><div className='bgW'><div className='dec1Button'>Online Museum Tickets</div></div></div>
         <div className='mgB1 textC'>
           <h1 className='fsXl lightBold'>Book your <span className='india' id='science'></span></h1>
@@ -62,12 +62,13 @@ function App() {
         <div className='fs1 maxW40Ch textC'>Buy <span className='bold'>Tickets</span> of museums <span className='bold'>Online</span> and invest your time exploring rather than waiting in a queue</div>
       
 
-        <div className='flex gap00 justifyC wMax'>
+        <div className='flex gap00 justifyC'>
           {/* <input type="text" name="museumName" id="museumName" className='searchBox whiteHover textC' placeholder='Search Museum name' list='museumNames'/> */}
-          <select name="museumName" id="museumName" className='searchBox whiteHover textC' onClick={() => updateMuseumNumber()}>
-            <option value="0">Birla Industrial & Technological Museum, Kolkata</option>
-            <option value="1">National Science Centre, Delhi</option>
-            <option value="2">Nehreu Science Center, Mumbai</option>
+          <select name="museumName" id="museumName" className=' searchBox whiteHover textC' onClick={() => updateMuseumNumber()}>
+            
+            <option value="0">National Science Centre, Delhi</option>
+            <option value="1">Nehreu Science Center, Mumbai</option>
+            <option value="2">Birla Industrial & Technological Museum, Kolkata</option>
             <option value="3">Visvesvaraya Industrial & Technological Museum, Bangalore</option>
             <option value="4">National Science Centre, Guwahati</option>
             <option value="5">ShriKrishna Science Centre, Patna</option>
@@ -85,11 +86,11 @@ function App() {
             <option value="17">Regional Science Centre, Bhopal</option>
             <option value="18">Goa Science Centre, Panjim</option>
             <option value="19">District Science Centre, Dharampur</option>
-            <option value="">Regional Science Centre & Planetarium, Calicut</option>
-            <option value="21">Regional Science Centre & Planetarium, Calicut</option>
-            <option value="22">Regional Science Centre, Tirupati</option>
-            <option value="23">District Science Centre, Gulbarga</option>
-            <option value="24">District Science Centre, Tirunelveli</option>
+            <option value="20">Regional Science Centre & Planetarium, Calicut</option>
+            {/* <option value="21">Regional Science Centre & Planetarium, Calicut</option> */}
+            <option value="21">Regional Science Centre, Tirupati</option>
+            <option value="22">District Science Centre, Gulbarga</option>
+            <option value="23">District Science Centre, Tirunelveli</option>
           </select>
           <Link to={`/museumHomePage/${museumNumber}`}><button className='searchButton'><img src={searchIcon} alt="" className='boxImage'/></button></Link>
         </div>
@@ -98,7 +99,7 @@ function App() {
         
       </div>
       
-      <div className="cardSection">
+      <div className="cardSection" id='cardSection'>
           
           {MuseumDataArray.map((museum, index) =>{
             // if(index>=4){

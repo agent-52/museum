@@ -74,31 +74,64 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
             // console.log(gltf)
             // console.log(action)
 
+            switch (museumNumber) {
+              case "0":
+                gltf.scene.scale.set(0.0004, 0.0004, 0.0004)
+                gltf.scene.rotation.y = -0.7
+                break;
+              
+              case "1":
+                gltf.scene.scale.set(0.2, 0.2, 0.2)
+                gltf.scene.rotation.x = 0.5
+                gltf.scene.rotation.y = 0.6  
+                break;
+              case "2":
+                gltf.scene.scale.set(0.002, 0.002, 0.002)
+                gltf.scene.rotation.y = 0.7
+                break;
+              case "3":
+                gltf.scene.scale.set(0.015, 0.015, 0.015)
+                gltf.scene.rotation.y = -3
+                break;
+              case "5":
+                
+                gltf.scene.scale.set(0.8, 0.8, 0.8)
+                gltf.scene.rotation.y = -1.8
+                break;
+              case "6":
+                gltf.scene.scale.set(0.45, 0.45, 0.45)
+                gltf.scene.rotation.z = -0.4
+                break;
+              
+              default:
+                gltf.scene.scale.set(1, 1, 1)
+                break;
+            }
+
+            //for model0
+            // gltf.scene.scale.set(0.8, 0.8, 0.8)
+            
+            //for model1
+            // gltf.scene.scale.set(0.2, 0.2, 0.2)
+            // gltf.scene.rotation.x = 0.5
+            // gltf.scene.rotation.y = 0.6
+
+            //for model2
+            // gltf.scene.scale.set(0.8, 0.8, 0.8)
+            // gltf.scene.rotation.y = -0.2
+
             //for model3
-            // gltf.scene.scale.set(5.3, 5.3, 5.3)
+            // gltf.scene.scale.set(0.015, 0.015, 0.015)
+            // gltf.scene.rotation.y = -3
 
-            //for model7
-            // gltf.scene.scale.set(2.2, 2.2, 2.2)
+            //for model5
+            // gltf.scene.scale.set(0.0004, 0.0004, 0.0004)
+            // gltf.scene.rotation.y = -0.7
 
-            //for model11
-            // gltf.scene.scale.set(5, 5, 5)
-            // gltf.scene.rotation.y = 1
 
-            //for model12
-            // gltf.scene.scale.set(1.8, 1.8, 1.8)
-            // gltf.scene.rotation.y = 0.85
-
-            //for model13
-            // gltf.scene.scale.set(0.35, 0.35, 0.35)
-            // gltf.scene.rotation.y = 0.85
-
-            //for model15
-            // gltf.scene.scale.set(6,6,6)
-            // gltf.scene.rotation.y = 1
-
-            //for model19
-            gltf.scene.scale.set(1,1,1)
-            gltf.scene.rotation.y = 2.7
+            //for model8
+            // gltf.scene.scale.set(1,1,1)
+            // gltf.scene.rotation.y = 2.7
             
 
             scene.add(gltf.scene)
@@ -157,7 +190,7 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
     directionalLight.shadow.camera.top = 7
     directionalLight.shadow.camera.right = 7
     directionalLight.shadow.camera.bottom = - 7
-    directionalLight.position.set(2, 2, 2)
+    directionalLight.position.set(1, 1, 2)
     scene.add(directionalLight)
 
     // const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1)
@@ -173,6 +206,7 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
 
     const hemiSphericalLight = new THREE.HemisphereLight("white", "white", 1)
     scene.add(hemiSphericalLight)
+
 
     /**
      * Sizes
