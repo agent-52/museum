@@ -111,7 +111,7 @@ function App() {
                 <div className='flexC pd1 gap0 justifyBw '>
                   <h3>{museum.name}</h3>
                   <p className='fs0'>{museum.desc}</p>
-                  <a href={`/museumHomePage/${index}`}><Button text="Buy Ticket" classArray="blackHover"/></a>
+                  <Link to={`/museumHomePage/${index}`}><Button text="Buy Ticket" classArray="blackHover"/></Link>
                 </div>
               </div>
             ) 
