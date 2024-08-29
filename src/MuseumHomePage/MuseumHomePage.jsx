@@ -9,6 +9,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import { useParams } from "react-router-dom";
 import  gsap  from "gsap"
 import MuseumDataArray from "../MuseumData/MuseumData"
+import { Link } from "react-router-dom"
 
 // gsap.registerPlugin(useGSAP);
 
@@ -301,7 +302,7 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
           <h1 className="lightBold fsXl">{museum.name}</h1>
           <div className="fs1">{museum.desc}</div>
           <div className="flex alignC gap4 ">
-            <Button text="Buy Ticket" classArray="blackHover fs1"/>
+            <Link to='/userInfoForm'><Button text="Buy Ticket" classArray="blackHover fs1"/></Link>
             <div className="flex gap2">
               <div className="flexC gap00">
                 <div className="bold">Days</div>

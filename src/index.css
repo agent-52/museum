@@ -143,6 +143,9 @@ body{
 .alignC{
   align-items: center;
 }
+.flexWrap{
+  flex-wrap: wrap;
+}
 
 .placeC{
   display: grid;
@@ -173,6 +176,9 @@ body{
 }
 .gap00{
   gap: 0.2rem;
+}
+.gap000{
+  gap: 0.1rem;
 }
 
 /*margins*/
