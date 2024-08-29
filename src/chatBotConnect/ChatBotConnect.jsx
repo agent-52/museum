@@ -11,7 +11,7 @@ const ChatBotConnect = () =>{
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/", {mode: "no-cors",
+    fetch("https://server1-production-9559.up.railway.app/", {mode: "no-cors",
       method: "get"})
      .then((response) => {
         if (response.status >= 400) {
