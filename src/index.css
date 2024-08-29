@@ -97,7 +97,7 @@ body{
   
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#e3e3e3",GradientType=1);
 
-  color: #1a1a1a;
+  
   overflow-x: hidden;
   margin: 0;
   padding: 0;
@@ -116,6 +116,7 @@ body{
 .body{
   min-width: 100vw;
   min-height: 100vh;
+  color: #1a1a1a;
 }
 
 /*colors*/
