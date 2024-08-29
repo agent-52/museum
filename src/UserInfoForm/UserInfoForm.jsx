@@ -19,7 +19,7 @@ const UserInfoForm = () =>{
   }
 
   return(
-    <div className="h100 flexC justifyC alignC gap1">
+    <div className="h100 flexC justifyC alignC gap1 clB">
       <div className="flexC alignC gap00 textC">
         <div className="formLogoBox"><img className="boxImage " src={userInfoFormLogo} alt="" /></div>
         <h1 className="lightBold formHeading">Enter your details</h1>
