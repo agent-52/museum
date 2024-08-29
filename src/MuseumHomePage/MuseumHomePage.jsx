@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import  gsap  from "gsap"
 import MuseumDataArray from "../MuseumData/MuseumData"
 import { Link } from "react-router-dom"
+import Bot from "../Bot/Bot"
 
 // gsap.registerPlugin(useGSAP);
 
@@ -28,6 +29,25 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
 
   useEffect(() =>{
 
+    /**
+   * Sizes
+   */
+    const sizes = {
+      
+    }
+
+
+    if(window.innerWidth>=1100){
+      sizes.width = window.innerWidth/2.1
+      sizes.height = window.innerHeight/1.2
+    
+    }else if(window.innerWidth>450 && window.innerWidth<=770){
+      sizes.width = window.innerWidth/2.5
+      sizes.height = window.innerHeight/3
+    }else if(window.innerWidth<=450){
+      sizes.width = window.innerWidth/1.5
+      sizes.height = window.innerHeight/3
+    }
 
 
     /**
@@ -212,16 +232,27 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
     /**
      * Sizes
      */
-    const sizes = {
-        width: window.innerWidth/2.1,
-        height: window.innerHeight/1.2
-    }
+    
+
+    
 
     window.addEventListener('resize', () =>
     {
         // Update sizes
-        sizes.width = window.innerWidth/2.1
-        sizes.height = window.innerHeight/1.2
+        if(window.innerWidth>=1100){
+          sizes.width = window.innerWidth/2.1
+          sizes.height = window.innerHeight/1.2
+        }else if(window.innerWidth>450 && window.innerWidth<=768){
+          sizes.width = window.innerWidth/2.5
+          sizes.height = window.innerHeight/3
+        }else if(window.innerWidth<=450){
+          sizes.width = window.innerWidth/1.5
+          sizes.height = window.innerHeight/3
+        }
+
+        
+        // sizes.width = window.innerWidth/2.1
+        // sizes.height = window.innerHeight/1.2
 
         // Update camera
         camera.aspect = sizes.width / sizes.height
@@ -244,6 +275,7 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
     const controls = new OrbitControls(camera, canvas)
     controls.target.set(0, 0, 0)
     controls.enableDamping = true
+    controls.enableZoom = false
 
     //horizontal only
     controls.minPolarAngle = Math.PI/2;
@@ -297,12 +329,14 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
     <div className="overflowXH">
       {/* <div className="pageCover"></div> */}
       <Header />
-      <div className="gridSection1 body placeC pdI3">
+      <div className="flex body alignC gap1 pdI2 museumMainPage">
         <div className="flexC gap2 w100">
           <h1 className="lightBold fsXl">{museum.name}</h1>
           <div className="fs1">{museum.desc}</div>
-          <div className="flex alignC gap4 ">
-            <Link to='/userInfoForm'><Button text="Buy Ticket" classArray="blackHover fs1"/></Link>
+          <div className="flex alignC ticketContainer" >
+            <div className="">
+              <Link to='/userInfoForm'><Button text="Buy Ticket" classArray="blackHover fs1"/></Link>
+            </div>
             <div className="flex gap2">
               <div className="flexC gap00">
                 <div className="bold">Days</div>
@@ -320,7 +354,7 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
           
         </div>
       </div>
-
+      
     </div>
   )
 }
