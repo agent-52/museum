@@ -11,13 +11,12 @@ const ChatBotConnect = () =>{
 
   useEffect(() => {
 
-    fetch("https://server1-production-9559.up.railway.app/", {mode: "no-cors",
-      method: "get"})
+    fetch("https://server1-production-9559.up.railway.app/", {mode: "no-cors"})
      .then((response) => {
         if (response.status >= 400) {
           throw new Error("server error");
         }
-        
+        console.log(response)
         return response.json();
       })
       .then((response) =>{

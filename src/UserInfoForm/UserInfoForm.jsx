@@ -12,9 +12,21 @@ const UserInfoForm = () =>{
     setInputs(values => ({...values, [name]: value}))
   }
  
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) =>{
     e.preventDefault();
-    alert(inputs);
+    const response = await fetch("http://localhost:8081/user/save",{
+      method: "POST",
+      headers:{
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputs)
+    })
+    if (response.ok) {
+      const uid = await response.json()
+      console.log(`User created with ID: ${uid}`)
+    }else{
+      console.log("Failed to create user")
+    }
     console.log(inputs)
   }
 
@@ -24,7 +36,7 @@ const UserInfoForm = () =>{
         <div className="formLogoBox"><img className="boxImage " src={userInfoFormLogo} alt="" /></div>
         <h1 className="lightBold formHeading">Enter your details</h1>
       </div>
-      <form action="/user/save" method="post" className="flexC justifyC gap0">
+      <form onSubmit={handleSubmit} className="flexC justifyC gap0">
         
         <div className="flexC gap000">
           <label htmlFor="name">Full Name: </label>
