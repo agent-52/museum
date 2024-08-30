@@ -2,12 +2,13 @@ import { useState } from "react"
 import "./UserInfoForm.css"
 import userInfoFormLogo from "/Images/formIcons/userInfoLogo.png"
 import { mId } from "../MuseumHomePage/MuseumHomePage"
-import { redirect } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const UserInfoForm = () =>{
   const [inputs, setInputs] = useState({
     
   })
+  let navigate = useNavigate();
 
   const museumNumber = mId
 
@@ -17,10 +18,12 @@ const UserInfoForm = () =>{
     setInputs(values => ({...values, [name]: value}))
   }
  
+  // http://localhost:8081/user/save
+
   const handleSubmit = async (e) =>{
     e.preventDefault();
     const response = await fetch("http://localhost:8081/user/save",{
-      method: "POST",
+      method: "post",
       headers:{
         "Content-Type": "application/json",
       },
@@ -29,15 +32,15 @@ const UserInfoForm = () =>{
     if (response.ok) {
       const uid = await response.json()
       console.log(`User created with ID: ${uid}`)
+      console.log("hi i am redirecting")
+      navigate('/ticketForm', {replace: true})
     }else{
       console.log("Failed to create user")
     }
     console.log(inputs)
+    
 
     ////
-    
-    
-    return redirect("/ticketForm")
   }
 
   return(

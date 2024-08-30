@@ -17,7 +17,7 @@ app.get("/api", (req, res) =>{
 app.post("/api", async (req, res) =>{
   
   data = await req.body;
-  res.redirect("/")
+  res.end()
 })
 
 const PORT =  5000

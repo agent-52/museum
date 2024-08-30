@@ -1,10 +1,13 @@
 import { useEffect } from "react"
 import "../UserInfoForm/UserInfoForm.css"
+import { useState } from "react"
+import { mId } from "../MuseumHomePage/MuseumHomePage"
+
 
 async function getPackageDetails(){
-
+  const museumNumber = mId
   const packagePageDetails = await fetch(`http://localhost:8081/package/${museumNumber}/packages`).then(res => res.json())
-
+  console.log(packagePageDetails)
   return packagePageDetails
 }
 const TicketForm = () =>{
