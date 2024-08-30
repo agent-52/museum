@@ -31,8 +31,10 @@ const TicketForm = () =>{
     const value = e.target.value;
     setInputs(values => ({...values, [name]: value}))
   }
-  function handleSelectPackage(index){
+  function handleSelectPackage(index, details){
     setSelectedPackage(index)
+    setPrice(details.price)
+
   }
   const handleSubmit = async (e) =>{
     e.preventDefault();
@@ -69,9 +71,10 @@ const TicketForm = () =>{
         
         <div className="flexC gap000">
           <label htmlFor="name">Packages: </label>
+          <div className="flex gap1">
           {packageDetails.map((details, index) => {
             return(
-              <div className="packageCard" key={index} onClick={() =>{handleSelectPackage(index)}}>
+              <div className="packageCard" key={index} onClick={() =>{handleSelectPackage(index, details)}}>
                 <div>{details.package_type}</div>
                 <div>{details.pname}</div>
                 <div>
@@ -91,6 +94,7 @@ const TicketForm = () =>{
               </div>
             )
           })}
+          </div>
           {/* <input type="text" name="name" id="name" className=" whiteHover" onChange={handleChange} value={inputs.name || ""} placeholder="name" required/> */}
         </div>
           
@@ -109,7 +113,7 @@ const TicketForm = () =>{
         </div>
         <div className="flex gap000">
           <div>Total Amount: </div>
-          <div>₹</div>
+          <div>₹{price}</div>
           
         </div>
         <div className="mgB1">

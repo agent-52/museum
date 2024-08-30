@@ -1,0 +1,9 @@
+.packageCard{
+  border: 1px solid rgba(0, 0, 0, 0.21);
+  justify-content: center;
+  box-shadow: 2px 2px rgb(235, 229, 229), 0em 0 .4em rgb(176, 176, 176);
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  border-radius: 0.5rem ;
+}
