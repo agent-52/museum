@@ -19,7 +19,7 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
   const { museumNumber } = useParams();
   mId = museumNumber
   console.log("Museum id: ",mId)
-  const museum = MuseumDataArray[mId] 
+  const museum = MuseumDataArray[mId-1] 
   function pageCoverAnimation(){
     // const tl = gsap.timeline()
     // tl.to(".pageCover", {
@@ -83,7 +83,7 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
 
     let mixer = null
     gltfLoader.load(
-        `/3d/${museumNumber}.glb`,
+        `/3d/${mId-1}.glb`,
         (gltf) => 
         {
             // mixer = new THREE.AnimationMixer(gltf.scene)
@@ -95,23 +95,24 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
             // action2.play()
             // console.log(gltf)
             // console.log(action)
+            console.log(mId)
 
-            switch (museumNumber) {
-              case "0":
+            switch (mId) {
+              case "1":
                 gltf.scene.scale.set(0.0004, 0.0004, 0.0004)
                 gltf.scene.rotation.y = -0.7
                 break;
               
-              case "1":
+              case "2":
                 gltf.scene.scale.set(0.2, 0.2, 0.2)
                 gltf.scene.rotation.x = 0.5
                 gltf.scene.rotation.y = 0.6  
                 break;
-              case "2":
+              case "3":
                 gltf.scene.scale.set(0.002, 0.002, 0.002)
                 gltf.scene.rotation.y = 0.7
                 break;
-              case "3":
+              case "4":
                 gltf.scene.scale.set(0.015, 0.015, 0.015)
                 gltf.scene.rotation.y = -3
                 break;

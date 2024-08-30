@@ -12,6 +12,7 @@ const TicketForm = () =>{
   })
   const [packageDetails, setPackageDetails] = useState([])
   const [selectedPackage, setSelectedPackage] = useState(0)
+  const [price, setPrice] = useState("")
 
   useEffect(() =>{
 
@@ -78,6 +79,7 @@ const TicketForm = () =>{
                   {details.l.map((ds, i) =>{
                     return(
                       <li key={i}>{ds}</li>
+
                     )
                   })}
                 </div>

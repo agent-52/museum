@@ -66,31 +66,31 @@ function App() {
           {/* <input type="text" name="museumName" id="museumName" className='searchBox whiteHover textC' placeholder='Search Museum name' list='museumNames'/> */}
           <select name="museumName" id="museumName" className=' searchBox whiteHover textC' onClick={() => updateMuseumNumber()}>
             
-            <option value="0">National Science Centre, Delhi</option>
-            <option value="1">Nehreu Science Center, Mumbai</option>
-            <option value="2">Birla Industrial & Technological Museum, Kolkata</option>
-            <option value="3">Visvesvaraya Industrial & Technological Museum, Bangalore</option>
-            <option value="4">National Science Centre, Guwahati</option>
-            <option value="5">ShriKrishna Science Centre, Patna</option>
-            <option value="6">North Bengal Science Centre, Siliguri</option>
-            <option value="7">Bardhaman Science Centre, Bardhaman</option>
-            <option value="8">District Science Centre, Purulia</option>
-            <option value="9">Digha Science Centre, Digha</option>
-            <option value="10">Central Research and Training Laboratory, Kolkata</option>
-            <option value="11">Regional Science Centre, Bhubaneswar</option>
-            <option value="12">Dhenkanal Science Centre, Dhenkanal and Kapilas Science Park</option>
-            <option value="13">Regional Science City, Lucknow</option>
-            <option value="14">Palampur Science Centre, Palampur</option>
-            <option value="15">Kurukshetra Panorama and Science centre, Kurukshetra</option>
-            <option value="16">Raman Science Centre & Planetarium, Nagpur</option>
-            <option value="17">Regional Science Centre, Bhopal</option>
-            <option value="18">Goa Science Centre, Panjim</option>
-            <option value="19">District Science Centre, Dharampur</option>
-            <option value="20">Regional Science Centre & Planetarium, Calicut</option>
+            <option value="1">National Science Centre, Delhi</option>
+            <option value="2">Nehreu Science Center, Mumbai</option>
+            <option value="3">Birla Industrial & Technological Museum, Kolkata</option>
+            <option value="4">Visvesvaraya Industrial & Technological Museum, Bangalore</option>
+            <option value="5">National Science Centre, Guwahati</option>
+            <option value="6">ShriKrishna Science Centre, Patna</option>
+            <option value="7">North Bengal Science Centre, Siliguri</option>
+            <option value="8">Bardhaman Science Centre, Bardhaman</option>
+            <option value="9">District Science Centre, Purulia</option>
+            <option value="10">Digha Science Centre, Digha</option>
+            <option value="11">Central Research and Training Laboratory, Kolkata</option>
+            <option value="12">Regional Science Centre, Bhubaneswar</option>
+            <option value="13">Dhenkanal Science Centre, Dhenkanal and Kapilas Science Park</option>
+            <option value="14">Regional Science City, Lucknow</option>
+            <option value="15">Palampur Science Centre, Palampur</option>
+            <option value="16">Kurukshetra Panorama and Science centre, Kurukshetra</option>
+            <option value="17">Raman Science Centre & Planetarium, Nagpur</option>
+            <option value="18">Regional Science Centre, Bhopal</option>
+            <option value="19">Goa Science Centre, Panjim</option>
+            <option value="20">District Science Centre, Dharampur</option>
+            <option value="21">Regional Science Centre & Planetarium, Calicut</option>
             {/* <option value="21">Regional Science Centre & Planetarium, Calicut</option> */}
-            <option value="21">Regional Science Centre, Tirupati</option>
-            <option value="22">District Science Centre, Gulbarga</option>
-            <option value="23">District Science Centre, Tirunelveli</option>
+            <option value="22">Regional Science Centre, Tirupati</option>
+            <option value="23">District Science Centre, Gulbarga</option>
+            <option value="24">District Science Centre, Tirunelveli</option>
           </select>
           <Link to={`/museumHomePage/${museumNumber}`}><button className='searchButton'><img src={searchIcon} alt="" className='boxImage'/></button></Link>
         </div>
@@ -111,7 +111,7 @@ function App() {
                 <div className='flexC pd1 gap0 justifyBw '>
                   <h3>{museum.name}</h3>
                   <p className='fs0'>{museum.desc}</p>
-                  <Link to={`/museumHomePage/${index}`}><Button text="Buy Ticket" classArray="blackHover"/></Link>
+                  <Link to={`/museumHomePage/${index+1}`}><Button text="Buy Ticket" classArray="blackHover"/></Link>
                 </div>
               </div>
             ) 
