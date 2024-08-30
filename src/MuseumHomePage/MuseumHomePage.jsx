@@ -13,12 +13,13 @@ import { Link } from "react-router-dom"
 import Bot from "../Bot/Bot"
 
 // gsap.registerPlugin(useGSAP);
-
+let mId;
 const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray=[], videoArray=[]}) =>{
 
   const { museumNumber } = useParams();
-  console.log(museumNumber)
-  const museum = MuseumDataArray[museumNumber] 
+  mId = museumNumber
+  console.log("Museum id: ",mId)
+  const museum = MuseumDataArray[mId] 
   function pageCoverAnimation(){
     // const tl = gsap.timeline()
     // tl.to(".pageCover", {
@@ -28,7 +29,7 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
   }
 
   useEffect(() =>{
-
+    
     /**
    * Sizes
    */
@@ -359,4 +360,4 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
   )
 }
 
-export default MuseumHomePage
+export {mId,  MuseumHomePage }

@@ -1,11 +1,16 @@
 import { useState } from "react"
 import "./UserInfoForm.css"
 import userInfoFormLogo from "/Images/formIcons/userInfoLogo.png"
+import { mId } from "../MuseumHomePage/MuseumHomePage"
+import { redirect } from "react-router-dom"
 
 const UserInfoForm = () =>{
   const [inputs, setInputs] = useState({
     
   })
+
+  const museumNumber = mId
+
   const handleChange = (e) =>{
     const name = e.target.name
     const value = e.target.value;
@@ -28,6 +33,11 @@ const UserInfoForm = () =>{
       console.log("Failed to create user")
     }
     console.log(inputs)
+
+    ////
+    
+    
+    return redirect("/ticketForm")
   }
 
   return(

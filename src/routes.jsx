@@ -1,8 +1,9 @@
-import MuseumHomePage from './MuseumHomePage/MuseumHomePage.jsx'
+import {MuseumHomePage} from './MuseumHomePage/MuseumHomePage.jsx'
 import App from './App/App.jsx'
 import UserInfoForm from './UserInfoForm/UserInfoForm.jsx';
 import ErrorPage from "../Error/Error.jsx";
 import ChatBotConnect from './chatBotConnect/ChatBotConnect.jsx';
+import { TicketForm } from './TicketForm/TicketForm.jsx';
 
 const routes = [
   {
@@ -21,6 +22,10 @@ const routes = [
   {
     path: "/botConnect",
     element: <ChatBotConnect />
+  },
+  {
+    path:"/ticketForm",
+    element:<TicketForm />
   }
 ];
 
