@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cashfreepayments/cashfree-js": "^1.0.5",
     "@gsap/react": "^2.1.1",
     "gsap": "^3.12.5",
     "react": "^18.3.1",

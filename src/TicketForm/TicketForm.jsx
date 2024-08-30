@@ -3,6 +3,7 @@ import "../UserInfoForm/UserInfoForm.css"
 import { useState } from "react"
 import { mId } from "../MuseumHomePage/MuseumHomePage"
 import packageDetailslogo from "/Images/formIcons/pakagePageLogo.png"
+import { load } from "@cashfreepayments/cashfree-js";
 
 
 
