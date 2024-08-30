@@ -36,24 +36,30 @@ const TicketForm = () =>{
     setPrice(details.price)
 
   }
+  function getDataToPost(){
+    const name = "payment_amount"
+    const value = price*inputs.total_people
+    const name2 = "booking_date"
+    const value2 = new Date()
+    const dataToSend = {...inputs, [name]: value, [name2]: value2 }
+    return dataToSend
+  }
+
   const handleSubmit = async (e) =>{
     e.preventDefault();
-    // const response = await fetch("http://localhost:8081/user/save",{
-    //   method: "post",
-    //   headers:{
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(inputs)
-    // })
-    // if (response.ok) {
-    //   const uid = await response.json()
-    //   console.log(`User created with ID: ${uid}`)
-    //   console.log("hi i am redirecting")
-    //   navigate('/ticketForm', {replace: true})
-    // }else{
-    //   console.log("Failed to create user")
-    // }
-    // console.log(inputs)
+    const response = await fetch("http://localhost:8081/booking/create",{
+      method: "post",
+      headers:{
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(getDataToPost())
+    })
+    if (response.ok) {
+      console.log("booking data successfully sent")
+    }else{
+      console.log("booking data not sent")
+    }
+    console.log(getDataToPost())
     
 
     // ////
@@ -113,7 +119,7 @@ const TicketForm = () =>{
         </div>
         <div className="flex gap000">
           <div>Total Amount: </div>
-          <div>₹{price}</div>
+          <div>₹{price*inputs.total_people}</div>
           
         </div>
         <div className="mgB1">
