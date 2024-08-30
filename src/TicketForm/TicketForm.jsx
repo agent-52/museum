@@ -175,7 +175,7 @@ const TicketForm = () =>{
         </div>
         <div className="flexC gap000"> 
           <label htmlFor="total_people">Total visitors: </label>
-          <input type="number" name="total_people" className=" whiteHover" id="total_people" onChange={handleChange} value={inputs.total_people}  required />
+          <input type="number" name="total_people" className=" whiteHover" id="total_people" onChange={handleChange} value={inputs.total_people||""}  required />
         </div>
         <div className="flex gap000">
           <div>Total Amount: </div>
