@@ -40,7 +40,7 @@ const TicketForm = () =>{
   async function completePayment() {
     try {
       console.log("payment clicked");
-      const sessionIdResponse = await fetch("http://localhost:8081/booking/create", {
+      const sessionIdResponse = await fetch("http://localhost:8081/booking/get", {
         method: "GET",
       }).then((res) => res.json());
       const sessionId = sessionIdResponse.payment_session_id;
