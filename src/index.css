@@ -264,6 +264,11 @@ body{
   line-height: 5rem;
 }
 
+/*positions*/
+.absolute{
+  position: absolute;
+}
+
 
 /*hover effects*/
 .blackHover:hover{

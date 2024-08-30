@@ -13,6 +13,7 @@ const TicketForm = () =>{
   const [packageDetails, setPackageDetails] = useState([])
   const [selectedPackage, setSelectedPackage] = useState(0)
   const [price, setPrice] = useState("")
+  const [cashfree, setCashfree] = useState(null);
 
   useEffect(() =>{
 
@@ -24,8 +25,62 @@ const TicketForm = () =>{
     }
 
     getPackageDetails()
+
+    async function initializeCashfree() {
+      const cashfreeInstance = await load({
+        mode: "sandbox", //or production
+      });
+      setCashfree(cashfreeInstance);
+    }
+    initializeCashfree();
     
   },[])
+
+  //payment part
+  async function completePayment() {
+    try {
+      console.log("payment clicked");
+      const sessionIdResponse = await fetch("http://localhost:8081/booking/create", {
+        method: "GET",
+      }).then((res) => res.json());
+      const sessionId = sessionIdResponse.payment_session_id;
+      console.log("sessionId", sessionId);
+      if (!sessionId) {
+        console.log("no session id received");
+        return;
+      }
+
+      let checkoutOptions = {
+        paymentSessionId: sessionId,
+        redirectTarget: document.getElementById("cf_checkout"),
+        appearance: {
+          width: "425px",
+          height: "700px",
+        }, //optional (_self, _blank, or _top)
+      };
+
+      if (cashfree) {
+        let result = await cashfree.checkout(checkoutOptions);
+        if (result.error) {
+          console.log("There is some payment error, check for payment status");
+          console.log(result.error);
+        }
+        if (result.redirect) {
+          console.log("Payment will be redirected");
+        }
+        if (result.paymentDetails) {
+          console.log("Payment has been completed, check for payment status");
+          console.log(result.paymentDetails.paymentMessage);
+        }
+      } else {
+        console.log("Cashfree SDK not initialized");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
   const handleChange = (e) =>{
     const name = e.target.name
     const value = e.target.value;
@@ -60,6 +115,10 @@ const TicketForm = () =>{
       console.log("booking data not sent")
     }
     console.log(getDataToPost())
+
+    console.log("payment started")
+    completePayment()
+    console.log("payment opened")
     
 
     // ////
@@ -123,6 +182,7 @@ const TicketForm = () =>{
           
         </div>
         <div className="mgB1">
+          <div id="cf_checkout" className="absolute"></div>
           <button type="submit" id="submitButton" className="blackHover">Checkout</button>
         </div>
         
