@@ -44,7 +44,7 @@ const TicketForm = () =>{
       const sessionIdResponse = await fetch("http://localhost:8081/booking/get", {
         method: "GET",
       }).then((res) => res.json());
-      const sessionId = sessionIdResponse.payment_session_id;
+      const sessionId = sessionIdResponse.sessionId;
       console.log("sessionId", sessionId);
       if (!sessionId) {
         console.log("no session id received");
