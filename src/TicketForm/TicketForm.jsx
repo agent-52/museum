@@ -24,7 +24,7 @@ const TicketForm = () =>{
 
     getPackageDetails()
     
-  })
+  },[])
   const handleChange = (e) =>{
     const name = e.target.name
     const value = e.target.value;
@@ -77,7 +77,7 @@ const TicketForm = () =>{
                   <ul>Features</ul>
                   {details.l.map((ds, i) =>{
                     return(
-                      <li map={i}>{ds}</li>
+                      <li key={i}>{ds}</li>
                     )
                   })}
                 </div>
@@ -107,7 +107,7 @@ const TicketForm = () =>{
         </div>
         <div className="flex gap000">
           <div>Total Amount: </div>
-          <div>₹{details.price}</div>
+          <div>₹</div>
           
         </div>
         <div className="mgB1">
