@@ -4,6 +4,7 @@ import { useState } from "react"
 import { mId } from "../MuseumHomePage/MuseumHomePage"
 import packageDetailslogo from "/Images/formIcons/pakagePageLogo.png"
 import { load } from "@cashfreepayments/cashfree-js";
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -11,6 +12,8 @@ const TicketForm = () =>{
   const [inputs, setInputs] = useState({
     
   })
+  let navigate = useNavigate()
+   
   const [packageDetails, setPackageDetails] = useState([])
   const [selectedPackage, setSelectedPackage] = useState(0)
   const [price, setPrice] = useState("")
@@ -55,7 +58,7 @@ const TicketForm = () =>{
         paymentSessionId: sessionId,
         redirectTarget: document.getElementById("cf_checkout"),
         appearance: {
-          width: "425px",
+          width: "600px",
           height: "700px",
         }, //optional (_self, _blank, or _top)
       };
@@ -68,10 +71,12 @@ const TicketForm = () =>{
         }
         if (result.redirect) {
           console.log("Payment will be redirected");
+          navigate('/successPage', {replace: true})
         }
         if (result.paymentDetails) {
           console.log("Payment has been completed, check for payment status");
           console.log(result.paymentDetails.paymentMessage);
+          navigate('/successPage', {replace: true})
         }
       } else {
         console.log("Cashfree SDK not initialized");
@@ -119,7 +124,9 @@ const TicketForm = () =>{
 
     console.log("payment started")
     completePayment()
-    console.log("payment opened")
+    console.log("payment completed")
+    
+
     
 
     // ////
@@ -179,11 +186,11 @@ const TicketForm = () =>{
         </div>
         <div className="flex gap000">
           <div>Total Amount: </div>
-          <div>₹{price*inputs.total_people}</div>
+          <div>₹{Math.round(price*inputs.total_people*100)/100}</div>
           
         </div>
         <div className="mgB1">
-          <div id="cf_checkout" className="absolute"></div>
+          <div id="cf_checkout" className="absolute absCenter"></div>
           <button type="submit" id="submitButton" className="blackHover">Checkout</button>
         </div>
         

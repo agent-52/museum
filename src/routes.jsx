@@ -4,6 +4,7 @@ import UserInfoForm from './UserInfoForm/UserInfoForm.jsx';
 import ErrorPage from "../Error/Error.jsx";
 import ChatBotConnect from './chatBotConnect/ChatBotConnect.jsx';
 import { TicketForm } from './TicketForm/TicketForm.jsx';
+import SuccessPage from './SuccessPage/SuccessPage.jsx';
 
 const routes = [
   {
@@ -26,6 +27,10 @@ const routes = [
   {
     path:"/ticketForm",
     element:<TicketForm />
+  },
+  {
+    path:"/successPage",
+    element:<SuccessPage />
   }
 ];
 

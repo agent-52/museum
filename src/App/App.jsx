@@ -23,6 +23,19 @@ gsap.registerPlugin(TextPlugin)
 function App() {
   const { museum } = useParams();
   const [museumNumber, setMuseumNumber] = useState(0)
+  useEffect(() => {
+    const script = document.createElement('script');
+  
+    script.src = "/bot/index.html";
+    script.async = true;
+  
+    document.body.appendChild(script);
+  
+    return () => {
+      document.body.removeChild(script);
+    }
+  }, []);
+  
   const updateMuseumNumber = () =>{
     const select = document.querySelector("select")
     setMuseumNumber(select.value)
@@ -120,7 +133,7 @@ function App() {
       
       
       
-      <Bot />
+      
     </div>
 
     </>
