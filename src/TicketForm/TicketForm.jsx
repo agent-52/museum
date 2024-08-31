@@ -144,11 +144,11 @@ const TicketForm = () =>{
         
         <div className="flexC gap000">
           <label htmlFor="name">Packages: </label>
-          <div className="flex gap1">
+          <div className="flex gap1_1 ">
           {packageDetails.map((details, index) => {
             return(
               <div className="packageCard" key={index} onClick={() =>{handleSelectPackage(index, details)}}>
-                <div>{details.package_type}</div>
+                <div className="lightBold">{details.package_type}</div>
                 <div>{details.pname}</div>
                 <div>
                   <ul>Features</ul>
@@ -163,7 +163,7 @@ const TicketForm = () =>{
                   <div>Max people allowed: </div>
                   <div>{details.group_size}</div>
                 </div>
-                <div>₹{details.price}</div>
+                <div className="lightBold">₹{details.price}</div>
               </div>
             )
           })}

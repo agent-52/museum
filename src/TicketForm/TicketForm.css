@@ -6,6 +6,7 @@
   transition: all 0.3s ease-in-out;
   overflow: hidden;
   border-radius: 0.5rem ;
+  background-color: white;
 }
 .absCenter{
   position: absolute;

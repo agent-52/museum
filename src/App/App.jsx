@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     const script = document.createElement('script');
   
-    script.src = "/bot/index.html";
+    script.src = "";
     script.async = true;
   
     document.body.appendChild(script);
