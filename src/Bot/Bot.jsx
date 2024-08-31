@@ -4,9 +4,9 @@ import message from "/Images/message.png"
 const Bot = () =>{
 
   return(
-    <div className="bot">
+    <a href="/bot/index.html"><div className="bot">
       <button className="botIcon"><img src={message} alt="" className="boxImage" /></button>
-    </div>
+    </div></a>
   )
 }
 
