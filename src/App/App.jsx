@@ -93,7 +93,7 @@ function App() {
             <option value="23">District Science Centre, Gulbarga</option>
             <option value="24">District Science Centre, Tirunelveli</option>
           </select>
-          <Link to={`/museumHomePage/${museumNumber}`}><button className='searchButton'><img src={searchIcon} alt="" className='boxImage'/></button></Link>
+          <Link to={`/museumHomePage/${museumNumber+1}`}><button className='searchButton'><img src={searchIcon} alt="" className='boxImage'/></button></Link>
         </div>
         <div></div>
         

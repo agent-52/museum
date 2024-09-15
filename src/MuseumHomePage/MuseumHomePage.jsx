@@ -11,6 +11,7 @@ import  gsap  from "gsap"
 import MuseumDataArray from "../MuseumData/MuseumData"
 import { Link } from "react-router-dom"
 import Bot from "../Bot/Bot"
+import PopUp from "../PopUp/PopUp"
 
 // gsap.registerPlugin(useGSAP);
 let mId;
@@ -83,7 +84,7 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
 
     let mixer = null
     gltfLoader.load(
-        `/3d/${mId-1}.glb`,
+        `/3d/${mId}.glb`,
         (gltf) => 
         {
             // mixer = new THREE.AnimationMixer(gltf.scene)
@@ -98,30 +99,30 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
             console.log(mId)
 
             switch (mId) {
-              case "1":
+              case "0":
                 gltf.scene.scale.set(0.0004, 0.0004, 0.0004)
                 gltf.scene.rotation.y = -0.7
                 break;
               
-              case "2":
+              case "1":
                 gltf.scene.scale.set(0.2, 0.2, 0.2)
                 gltf.scene.rotation.x = 0.5
                 gltf.scene.rotation.y = 0.6  
                 break;
-              case "3":
+              case "2":
                 gltf.scene.scale.set(0.002, 0.002, 0.002)
                 gltf.scene.rotation.y = 0.7
                 break;
-              case "4":
+              case "3":
                 gltf.scene.scale.set(0.015, 0.015, 0.015)
                 gltf.scene.rotation.y = -3
                 break;
-              case "5":
+              case "4":
                 
                 gltf.scene.scale.set(0.8, 0.8, 0.8)
                 gltf.scene.rotation.y = -1.8
                 break;
-              case "6":
+              case "5":
                 gltf.scene.scale.set(0.45, 0.45, 0.45)
                 gltf.scene.rotation.z = -0.4
                 break;
@@ -337,7 +338,8 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
           <div className="fs1">{museum.desc}</div>
           <div className="flex alignC ticketContainer" >
             <div className="">
-              <Link to='/userInfoForm'><Button text="Buy Ticket" classArray="blackHover fs1"/></Link>
+              <PopUp />
+              {/* <Link to='/userInfoForm'><Button text="Buy Ticket" classArray="blackHover fs1"/></Link> */}
             </div>
             <div className="flex gap2">
               <div className="flexC gap00">
@@ -356,7 +358,7 @@ const MuseumHomePage = ({ timing="9am-6pm", days="mon-sat", pricing={}, imgArray
           
         </div>
       </div>
-      
+      <Bot/>
     </div>
   )
 }
