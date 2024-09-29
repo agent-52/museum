@@ -5,10 +5,15 @@ import ErrorPage from "../Error/Error.jsx";
 import ChatBotConnect from './chatBotConnect/ChatBotConnect.jsx';
 import { TicketForm } from './TicketForm/TicketForm.jsx';
 import SuccessPage from './SuccessPage/SuccessPage.jsx';
+import DualityPage from './dualityPage/dualityPage.jsx';
 
 const routes = [
   {
     path: "/",
+    element: <DualityPage />
+  },
+  {
+    path: "/app",
     element: <App />,
     errorElement: <ErrorPage />,
   },

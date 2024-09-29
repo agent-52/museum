@@ -1,6 +1,8 @@
 import { useState } from "react"
 import "./PopUp.css"
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
+
 const PopUp = () =>{
 
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +21,7 @@ const PopUp = () =>{
             <div className="popup-content">
               <a href="/bot/index.html"><div className="box">Book via chatbot</div></a>
               <div className="box">Book via Call</div>
+              <Link to="/userInfoForm"><div className="textC">Book via form filling</div></Link>
             </div>
           </div>
         </div>
